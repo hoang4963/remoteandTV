@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    class remote {
+        tv
+        constructor(tv) {
+            this.tv = tv
+        }
+        pressOn() {
+            this.tv.status = true;
+        }
+        pressOff() {
+            this.tv.status = false;
+        }
+        setVol(vol) {
+           if (this.tv.status)
+               this.tv.setVol(vol)
+            else alert('mo tv')
+        }
+        setChanel(chanel){
+           if (this.tv.status)
+               this.tv.setChanel(chanel)
+            else alert('mo tv')
+        }
+    }
+    class TV {
+        status
+        chanel
+        vol
+        constructor(chanel , vol) {
+            this.chanel = chanel;
+            this.vol = vol;
+        }
+        status() {
+            if (this.status)
+                alert('TV on')
+            else alert('TV off')
+        }
+        setChanel(chanel) {
+            this.chanel = chanel;
+        }
+        getChanel() {
+            return this.chanel;
+        }
+        setVol(vol){
+            this.vol = vol;
+        }
+        getVol() {
+            return this.vol
+        }
+    }
+    let TV1 = new TV(0,0);
+    let remote1 = new remote(TV1);
+    remote1.pressOn();
+    console.log(TV1.status)
+    remote1.setChanel(10);
+    console.log(TV1.getChanel())
+    remote1.setVol(25);
+    console.log(TV1.getVol());
+    remote1.pressOff()
+    console.log(TV1.status)
+</script>
+
+</body>
+</html>
